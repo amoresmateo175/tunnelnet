@@ -7,7 +7,6 @@ export default function Navbar() {
   const menuRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(0);
 
-  // Ajusta la altura del menú para la animación
   useEffect(() => {
     if (menuRef.current) {
       setMenuHeight(menuRef.current.scrollHeight);
@@ -20,12 +19,12 @@ export default function Navbar() {
 
       {/* Menú para pantallas grandes */}
       <div className="hidden md:flex gap-8 items-center">
-        <a href="#plans" className="hover:text-accent transition">
+        <a href="#plans" className="hover:text-accent transition font-semibold text-black">
           Plans
         </a>
         <a
           href="#contact"
-          className="bg-accent text-black px-5 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          className="bg-accent text-black px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
         >
           Contact
         </a>
@@ -57,18 +56,18 @@ export default function Navbar() {
       <div
         ref={menuRef}
         style={{ maxHeight: isOpen ? `${menuHeight}px` : "0px" }}
-        className="absolute top-full left-0 w-full overflow-hidden bg-white shadow-md flex flex-col items-center gap-4 py-0 md:hidden transition-[max-height] duration-500 ease-in-out"
+        className="absolute top-full left-0 w-full overflow-hidden bg-white shadow-md flex flex-col items-center gap-4 py-4 md:hidden transition-[max-height] duration-500 ease-in-out"
       >
         <a
           href="#plans"
-          className="hover:text-accent transition py-2"
+          className="text-black font-semibold text-lg hover:text-accent transition py-2"
           onClick={() => setIsOpen(false)}
         >
           Plans
         </a>
         <a
           href="#contact"
-          className="bg-accent text-black px-5 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          className="bg-accent text-black px-8 py-2 rounded-lg font-semibold hover:scale-105 transition"
           onClick={() => setIsOpen(false)}
         >
           Contact
