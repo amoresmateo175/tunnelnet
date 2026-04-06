@@ -44,22 +44,25 @@ export default function Navbar() {
       <div
         ref={menuRef}
         style={{ maxHeight: isOpen ? `${menuHeight}px` : "0px" }}
-        className="absolute top-full left-0 w-full overflow-hidden bg-white shadow-md flex flex-col items-center gap-4 py-4 transition-[max-height] duration-500 ease-in-out md:hidden"
+        className="absolute top-full left-0 w-full overflow-hidden bg-white shadow-md flex flex-col items-center gap-4 transition-[max-height] duration-500 ease-in-out md:hidden"
       >
-        <a
-          href="#plans"
-          className="text-black font-semibold text-lg hover:text-accent transition py-2"
-          onClick={() => setIsOpen(false)}
-        >
-          Plans
-        </a>
-        <a
-          href="#contact"
-          className="bg-accent text-black px-8 py-2 rounded-lg font-semibold hover:scale-105 transition"
-          onClick={() => setIsOpen(false)}
-        >
-          Contact
-        </a>
+        {/* padding vertical solo cuando está abierto */}
+        <div className={`flex flex-col items-center w-full ${isOpen ? "py-4" : "py-0"}`}>
+          <a
+            href="#plans"
+            className="text-black font-semibold text-lg hover:text-accent transition py-2"
+            onClick={() => setIsOpen(false)}
+          >
+            Plans
+          </a>
+          <a
+            href="#contact"
+            className="bg-accent text-black px-8 py-2 rounded-lg font-semibold hover:scale-105 transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </a>
+        </div>
       </div>
     </nav>
   );
