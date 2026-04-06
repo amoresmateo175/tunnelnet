@@ -7,28 +7,16 @@ export default function Navbar() {
   const menuRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(0);
 
+  // Ajusta la altura del menú para la animación
   useEffect(() => {
     if (menuRef.current) {
       setMenuHeight(menuRef.current.scrollHeight);
     }
-  }, [menuRef, isOpen]);
+  }, [isOpen]);
 
   return (
     <nav className="relative flex items-center justify-between px-8 py-5 border-b border-secondary bg-white z-50">
       <h1 className="text-2xl font-bold text-accent">TunnelNet</h1>
-
-      {/* Menú para pantallas grandes */}
-      <div className="hidden md:flex gap-8 items-center">
-        <a href="#plans" className="hover:text-accent transition font-semibold text-black">
-          Plans
-        </a>
-        <a
-          href="#contact"
-          className="bg-accent text-black px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
-        >
-          Contact
-        </a>
-      </div>
 
       {/* Botón hamburguesa para móviles */}
       <button
@@ -56,7 +44,7 @@ export default function Navbar() {
       <div
         ref={menuRef}
         style={{ maxHeight: isOpen ? `${menuHeight}px` : "0px" }}
-        className="absolute top-full left-0 w-full overflow-hidden bg-white shadow-md flex flex-col items-center gap-4 py-4 md:hidden transition-[max-height] duration-500 ease-in-out"
+        className="absolute top-full left-0 w-full overflow-hidden bg-white shadow-md flex flex-col items-center gap-4 py-4 transition-[max-height] duration-500 ease-in-out md:hidden"
       >
         <a
           href="#plans"
